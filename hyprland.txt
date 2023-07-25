@@ -1,0 +1,7 @@
+hyprland-hidpi-xprop-git
+xdg-desktop-portal-hyprland-git
+waybar-hyprland-git
+waybar-updates
+swaybg
+swaync
+wlogout
