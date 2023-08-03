@@ -1,29 +1,42 @@
 #!/bin/bash
-yay -Syu
-yay -S --needed --noconfirm -- < arch-pkgs.txt
+read "What AUR helper would you like to use? (install first!)" AUR_HELPER
 
-read -p "kde, xfce or hyprland (choose one)" de
-yay -S --needed --noconfirm -- < $de.txt
+$AUR_HELPER -Syu
+
+cat arch-pkgs.txt | while read pkg
+do
+	$AUR_HELPER -S --needed --noconfirm -- $pkg
+done
+
+read "kde, xfce or hyprland (choose one) " de
+cat $de.txt | while read pkg
+do
+	$AUR_HELPER -S --needed --noconfirm -- $pkg
+done
 
 read -p "Install utility software? [y/N] " installUtils
 if [[ "$installUtils" =~ ^([yY][eE][sS]|[yY])$ ]]
 then
-    yay -S --needed --noconfirm -- < utils.txt
+    cat utils.txt | while read pkg
+    do
+    	$AUR_HELPER -S --needed --noconfirm -- $pkg
+    done
 fi
 
 read -p "Install zsh? [y/N] " installzsh
 if [[ "$installUtils" =~ ^([yY][eE][sS]|[yY])$ ]]
 then
-    yay -S --needed --noconfirm -- < zsh.txt
+    cat zsh.txt | while read pkg
+    do
+    	$AUR_HELPER -S --needed --noconfirm -- $pkg
+    done
     chsh -s /bin/zsh
 fi
 
 git clone https://github.com/TheBlueRuby/dotfiles-arch.git
 
-cp ./dotfiles-arch/.config/* ~/.config/
+cp -r ./dotfiles-arch/.config/* ~/.config/
 cp ./dotfiles-arch/.wezterm.lua ~/
-cp ./dotfiles-arch/aliases.sh ~/
-echo "To use aliases, add aliases.sh to your shell rc"
-rm -r ./dotfiles-arch
+rm -rf ./dotfiles-arch
 
 echo "Place desktop-bg.png in ~/Pictures/"
