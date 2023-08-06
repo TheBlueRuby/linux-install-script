@@ -4,10 +4,12 @@ kde-cli-tools
 kde-gtk-config
 kdecoration
 kdeplasma-addons
+kdialog
 kgamma5
 khotkeys
 kinfocenter
 kmenuedit
+kmix
 konsole
 kpipewire
 kscreen

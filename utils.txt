@@ -1,3 +1,5 @@
+arch-wiki-docs
+audacity
 bottom-git
 cmatrix-git
 code
@@ -14,7 +16,7 @@ steam
 sl
 slurp
 w3m
-webcord
+wikiman
 wine
 winetricks-git
 yt-dlp

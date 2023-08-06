@@ -1,4 +1,5 @@
 hyprland-hidpi-xprop-git
+pw-volume
 xdg-desktop-portal-hyprland-git
 waybar-hyprland-git
 waybar-updates
